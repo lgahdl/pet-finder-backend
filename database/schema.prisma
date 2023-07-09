@@ -1,0 +1,44 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Owner {
+  id_owner String      @id @unique
+  name     String
+  pets     Pet_Owner[]
+}
+
+model Pet_Owner {
+  id_pet_owner Int    @id @default(autoincrement())
+  pet          Pet    @relation(fields: [id_pet], references: [id_pet])
+  owner        Owner  @relation(fields: [id_owner], references: [id_owner])
+  id_pet       Int
+  id_owner     String
+}
+
+model Pet {
+  id_pet       Int            @id @default(autoincrement())
+  name         String
+  description  String
+  race         String
+  owners       Pet_Owner[]
+  photos       Photo[]
+  Localization Localization[]
+}
+
+model Photo {
+  id_photo Int    @id @default(autoincrement())
+  pet      Pet    @relation(fields: [id_pet], references: [id_pet])
+  id_pet   Int
+  path     String
+}
+
+model Localization {
+  id_loc     Int      @id @default(autoincrement())
+  latitude   String
+  longitude  String
+  id_pet     Int
+  pet        Pet      @relation(fields: [id_pet], references: [id_pet])
+  created_at DateTime
+}

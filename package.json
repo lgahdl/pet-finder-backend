@@ -1,0 +1,22 @@
+{
+  "name": "pet-finder-backend",
+  "version": "1.0.0",
+  "description": "Server for Pet Finder Application",
+  "main": "index.ts",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lgahdl/pet-finder-backend.git"
+  },
+  "author": "Luiz Gustavo Abou Hatem de Liz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lgahdl/pet-finder-backend/issues"
+  },
+  "homepage": "https://github.com/lgahdl/pet-finder-backend#readme",
+  "dependencies": {
+    "prisma": "^4.16.2"
+  }
+}
